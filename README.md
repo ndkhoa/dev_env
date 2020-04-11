@@ -4,7 +4,7 @@
   - Time Zone: Asia/Ho_Chi_Minh
   - fzf
   - zsh: autosuggestions, syntax-highlighting
-  - rvm
+  - rvm 1.29.10
   - ruby 2.6.6
   - nvm 0.35.3
   - node 12.16.2

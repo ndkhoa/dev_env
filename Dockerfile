@@ -32,8 +32,10 @@ RUN echo "export HISTSIZE=999999999" >> ~/.zshrc && \
 RUN mkdir ~/.gnupg && echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf && \
     gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB && \
     curl -sSL https://get.rvm.io | bash -s stable --ruby=$RUBY_VERSION && \
-    echo "source /usr/local/rvm/scripts/rvm" | tee -a ~/.bashrc ~/.zshrc && \
-    rm -rf /usr/local/rvm/rubies/ruby-$RUBY_VERSION/lib/ruby/gems/$RUBY_VERSION/specifications/default/*
+    echo "source /usr/local/rvm/scripts/rvm" | tee -a ~/.bashrc ~/.zshrc
+RUN rm -rf /usr/local/rvm/rubies/ruby-$RUBY_VERSION/lib/ruby/gems/$RUBY_VERSION/specifications/default/* && \
+    bash -c "source /usr/local/rvm/scripts/rvm && gem install bundler && gem update --system && gem install colorls" && \
+    echo 'alias cl="colorls -Al --sd"' >> ~/.zshrc
 
 RUN curl -sSL https://github.com/creationix/nvm/raw/$NVM_VERSION/install.sh | bash && \
     bash -c "source $HOME/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use $NODE_VERSION"
