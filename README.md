@@ -49,8 +49,8 @@ docker run -p 8000:8000 -p 8080:8080 \
 ```
 docker exec -it dev_env zsh
 
-npm install -g @vue/cli
-npm install -g @vue/cli-service-global
+npm install -g --unsafe-perm @vue/cli && npm install -g --unsafe-perm @vue/cli-service-global
+npm install -g @vue/cli && npm install -g @vue/cli-service-global
 
 vue info
 vue create -h
