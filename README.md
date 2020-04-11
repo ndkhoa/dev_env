@@ -60,4 +60,9 @@ npm run serve
 
 App running at:
   - Local:   http://localhost:8080/
+
+# Running Vue UI
+vue ui -H 0.0.0.0
+
+Ready on http://localhost:8000
 ```
