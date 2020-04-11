@@ -49,10 +49,15 @@ docker run -p 8000:8000 -p 8080:8080 \
 ```
 docker exec -it dev_env zsh
 
-npm install -g --unsafe-perm @vue/cli
-npm install -g --unsafe-perm @vue/cli-service-global
+npm install -g @vue/cli
+npm install -g @vue/cli-service-global
 
-vue --version
 vue info
 vue create -h
+vue create -d first_default_app
+cd first_default_app
+npm run serve
+
+App running at:
+  - Local:   http://localhost:8080/
 ```
