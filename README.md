@@ -44,15 +44,39 @@ docker run -p 8000:8000 -p 8080:8080 \
            dev_env
 ```
 
-## 3. Install Vue CLI
+## 3. Vue
+
+### 3.1. Install Vue CLI
+
+[@vue/cli](https://www.npmjs.com/package/@vue/cli)
 
 ```
 docker exec -it dev_env zsh
 
-npm install -g --unsafe-perm @vue/cli && npm install -g --unsafe-perm @vue/cli-service-global
-npm install -g @vue/cli && npm install -g @vue/cli-service-global
+npm install -g --unsafe-perm @vue/cli && npm install -g @vue/cli
 
 vue info
+
+vue --help
+```
+
+### 3.2. Vue ui
+
+```
+vue ui --help
+
+vue ui -H 0.0.0.0
+
+Ready on http://localhost:8000
+```
+
+### 3.3. Vue create
+
+[@vue/cli-service-global](https://www.npmjs.com/package/@vue/cli-service-global)
+
+```
+npm install -g --unsafe-perm @vue/cli-service-global && npm install -g @vue/cli-service-global
+
 vue create -h
 vue create -d first_default_app
 cd first_default_app
@@ -60,9 +84,18 @@ npm run serve
 
 App running at:
   - Local:   http://localhost:8080/
+```
 
-# Running Vue UI
-vue ui -H 0.0.0.0
+### 3.4. Vue init
 
-Ready on http://localhost:8000
+[@vue/cli-init](https://www.npmjs.com/package/@vue/cli-init)
+
+```
+npm install -g --unsafe-perm @vue/cli-init && npm install -g @vue/cli-init
+
+vue init webpack vue_cli_example
+
+cd vue_cli_example
+npm install
+HOST='0.0.0.0' npm run dev
 ```
