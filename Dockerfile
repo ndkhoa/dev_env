@@ -11,6 +11,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     RUBY_VERSION=2.6.6 \
     NVM_VERSION=v0.35.3 \
     NODE_VERSION=12.16.2 \
+    YARN_VERSION=1.22.4 \
     WORKSPACE=/var/workspace
 
 RUN echo $TZ > /etc/timezone && \
@@ -42,6 +43,8 @@ RUN curl -sSL https://github.com/creationix/nvm/raw/$NVM_VERSION/install.sh | ba
 RUN echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc && \
     echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.zshrc && \
     echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion' >> ~/.zshrc
+RUN zsh -c "source ~/.zshrc; curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version=$YARN_VERSION" && \
+    echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> ~/.zshrc
 
 WORKDIR $WORKSPACE
 
