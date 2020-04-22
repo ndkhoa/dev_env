@@ -8,6 +8,8 @@
   - ruby 2.6.6
   - nvm 0.35.3
   - node 12.16.2
+  - npm 6.14.4
+  - yarn 1.22.4
 
 ## 1. Build our image
 
